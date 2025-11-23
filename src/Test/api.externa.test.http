@@ -1,0 +1,11 @@
+@Host=http://127.0.0.1
+@Port=3001
+
+//Categoría para filtrar: Sistemas, Ventas, Marketing, Finanzas, Administración
+@categoria=Sistemas
+
+### API EXTERNA - TODAS LAS CAPACITACIONES EXTERNAS
+GET  {{Host}}:{{Port}}/api/capacitaciones-externas
+
+### API EXTERNA - FILTRAR POR CATEGORIA
+GET  {{Host}}:{{Port}}/api/capacitaciones-externas/{{categoria}}

@@ -1,0 +1,47 @@
+@Host=http://127.0.0.1
+@Port=3001
+@EndpointTempalte = api/empleado
+
+//@mongoId=68f9854ee8539580dad010d6
+
+
+###  Validacion de seleccion all
+GET  {{Host}}:{{Port}}/{{EndpointTempalte}}/all
+
+###  Validacion de seleccion
+GET  {{Host}}:{{Port}}/{{EndpointTempalte}}/select/27
+
+
+###  Validacion de borrado
+DELETE  {{Host}}:{{Port}}/{{EndpointTempalte}}/delete/20
+
+
+###  Creacion de empleado
+POST  {{Host}}:{{Port}}/{{EndpointTempalte}}/create
+Content-Type: application/json
+
+{
+  "nombre": "fran",
+  "apellido": "pellegrini",
+  "dni": null,
+  "telefono": "1133445566",
+  "email": "dani@example.com",
+  "fechaNacimiento": "1990-06-15",
+  "fechaIngreso": "2024-03-10",
+  "salarioBase": 2500000,
+  "areaId": 2,
+  "puestoId": 3
+}
+
+
+
+###  Modificacion de datos del empleado
+PATCH   {{Host}}:{{Port}}/{{EndpointTempalte}}/update
+Content-Type: application/json
+
+{
+  "nombre": "Anna Belen",
+  "apellido": "Acevedo",
+  "id": 27,
+  "email": "annabelenAcevedo@example.com"
+}

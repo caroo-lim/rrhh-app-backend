@@ -1,0 +1,42 @@
+{
+	"name": "",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"license": "AGPL-version-3.0",
+	"private": false,
+	"engines": {
+		"node": ">= 14.0.0",
+		"npm": ">= 6.0.0"
+	},
+	"homepage": "",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"bugs": "",
+	"keywords": [],
+	"author": {
+		"name": "",
+		"email": "",
+		"url": ""
+	},
+	"contributors": [],
+	"scripts": {
+		"dev": "node --watch app.js",
+		"linter:check": "npx @biomejs/biome lint .",
+		"linter:format": "npx @biomejs/biome format --write ."
+	},
+	"dependencies": {
+		"dotenv": "^17.2.3",
+		"express": "^5.1.0",
+		"jsonwebtoken": "^9.0.2",
+		"morgan": "^1.10.1",
+		"mysql2": "^3.15.3",
+		"sequelize": "^6.37.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.5"
+	}
+}
