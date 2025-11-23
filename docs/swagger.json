@@ -1,0 +1,96 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RRHH API - Empleados",
+    "version": "1.0.0",
+    "description": "CRUD de empleados documentado con Swagger"
+  },
+  "paths": {
+    "/api/empleado/all": {
+      "get": {
+        "summary": "Obtener todos los empleados",
+        "responses": {
+          "200": {
+            "description": "Lista de empleados"
+          }
+        }
+      }
+    },
+    "/api/empleado/select/{id}": {
+      "get": {
+        "summary": "Obtener un empleado por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Empleado encontrado" },
+          "404": { "description": "Empleado no encontrado" }
+        }
+      }
+    },
+    "/api/empleado/create": {
+      "post": {
+        "summary": "Crear un nuevo empleado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "nombre": "Ana",
+                "apellido": "García",
+                "dni": "87654321"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Empleado creado exitosamente" },
+          "409": { "description": "DNI ya existe" }
+        }
+      }
+    },
+    "/api/empleado/update": {
+      "patch": {
+        "summary": "Actualizar un empleado existente",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "id": 1,
+                "nombre": "Juan",
+                "apellido": "Pérez"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Empleado actualizado exitosamente" },
+          "422": { "description": "Empleado no existe o datos inválidos" }
+        }
+      }
+    },
+    "/api/empleado/delete/{id}": {
+      "delete": {
+        "summary": "Eliminar un empleado por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Empleado eliminado exitosamente" },
+          "422": { "description": "Empleado no existe" }
+        }
+      }
+    }
+  }
+}
