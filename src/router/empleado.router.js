@@ -4,6 +4,7 @@ import { EmpleadoController } from "../controller/empleado.controller.js";
 
 const EmpleadoRouter = express.Router();
 
+
 //crud
 
 EmpleadoRouter.get("/all", EmpleadoController.getAllEmpleados)

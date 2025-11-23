@@ -14,7 +14,7 @@ export const DATOSAPI_URL =
 
 //configuracion para JWT ADMIN
 export const CONFIG_ADMIN = {
-    SECRECT_KEY: 'superClaveSecreta',
+    SECRET_KEY: 'superClaveSecreta',
 
     DUMMY_USER_ADMIN: {
         username: 'Admin',

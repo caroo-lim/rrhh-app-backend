@@ -9,12 +9,11 @@ import jwtRouter from './router/admin.token.router.js';
 import empleadoAdminRouter from "./router/empleado.admin.router.js";
 
 
-
 //inicializamos express
 const server = express();
 const morgarnModule = morgan(':method :url :status :res[content-length] - :response-time ms');
 
-
+// swagger docs
 server.use(express.json());
 server.use(morgarnModule); //logging de las peticiones al server
 
@@ -29,6 +28,9 @@ server.use(jwtRouter)
 // middleware de routing solo admin
 server.use(empleadoAdminRouter);
 
+server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 //catch-all for error 404
 server.use((req, res, next) => {
 	res.status(404).send("No está disponible este endpoint: " + req.url);
@@ -36,4 +38,3 @@ server.use((req, res, next) => {
 
 export default server;
 
-server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
